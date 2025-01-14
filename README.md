@@ -8,7 +8,7 @@ Pokemon, a game that has captured the minds and attention of people for decades,
 ### Key Features
 - Ability to encounter and catch Pokemon
 - Personal collection page
-- Pokedex Page that shows what you have caught and what you are missing
+- Pokedex page that shows what you have caught and what you are missing
 - Ability to share catches with others
 - Free encounter/catch every 3 hours
 
@@ -17,7 +17,7 @@ Pokemon, a game that has captured the minds and attention of people for decades,
 
 I am going to use the required technologies in the following ways:
 
-- **HTML** - My startup with span four different pages (Login, Catch, Collection and Pokedex). Hyperlinks between pages except initial login page.
+- **HTML** - My startup will span four different pages (Login, Catch, Collection and Pokedex). Hyperlinks between pages except initial login page.
 - **CSS** - I will include an animation of a Poke ball shaking and catching a Pokemon. Decorated tables of Pokemon caught and missing.
 - **React** - Clicking the Encounter button will interact with the page and show a hidden Pokemon. Pressing catch will add that Pokemon to a database tied to the player
 - **Services** - App will connect with graphql-pokeapi to retrieve specific information about each Pokemon including type and pokedex entries.
