@@ -7,5 +7,5 @@ Pokemon, a game that has captured the minds and attention of people for decades,
 
 ### Design
 
-![Mock](startupV3 brainstorm.pdf)
+![Mock](startupV3brainstorm.pdf)
 
