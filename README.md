@@ -24,6 +24,20 @@ I am going to use the required technologies in the following ways:
 - **DB/Authentication** - Each player will log in and have a record of each Pokemon that they have caught and who they are missing
 - **WebSocket** - A message will appear on the catch page when other users succesfully caught a Pokemon (forgot to add this to my design jpg but it will be there)
 
+## HTML deliverable
+
+For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+
+- [x] **HTML pages** - Four different pages. One for each view. `index.html` (Login), `catch.html`, `collection.html`, and `pokedex.html`.
+- [x] **Proper HTML element usage** - I used header,footer, main, nav, img, a, and  button tags throughout my HTML files.
+- [x] **Links** - Links between views.
+- [x] **Text** - Catch page has text showing who has caught a Pokemon.
+- [x] **3rd party API placeholder** - My pokedex and collection pages are hard programmed right now. These will act as placeholders for the Pokemon API i will be using.
+- [x] **Images** - The question mark image on the pokedex page will be used to show if the user has not caught that Pokemon yet. I have placeholder images on collection page.
+- [x] **Login placeholder** - My home page (index.html) has a placeholder for login. I will change it during the CSS phase as right now it is the exact same as Simon's.
+- [x] **DB data placeholder** - My collection and pokedex page both have very large hardcoded tables that act as placeholders for the data that will be stored in them. I will change the collection tables to allocate dynamically with javascript.
+- [x] **WebSocket placeholder** - The Player Catches section on catch page is a placeholder for future Websocket implementation.
+
 ### Design
 
 ![loginBrainstorm](/images/loginBrainstorm.jpg)
