@@ -47,6 +47,7 @@ main h1{
     text-align: center;
 }
 .collection-table{
+    /* display: flex; */
     text-align:center;
     font-size: x-large;
 }
