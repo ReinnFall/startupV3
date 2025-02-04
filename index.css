@@ -20,7 +20,8 @@ header{
     justify-content: space-between; /* Gives a space in between nav and login */
     align-items: center;
     padding: 2vh 3vw;
-    flex: 1;
+    width: 100vw;
+    flex: 1 0 auto;
 }
 nav{
     font-size: 1.5vw;
@@ -58,7 +59,8 @@ footer{
     display: flex;
     background-color: gray;
     padding: 2vh 3vw;
-    flex: 1;
+    width: 100vw;
+    flex: 1 0 auto;
     color: black;
     text-decoration: none;
     font-size: 1.5vw;
