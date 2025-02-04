@@ -39,15 +39,20 @@ nav a:hover {
 main{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     height: 100vh;
 }
 main h1{
     text-align: center;
 }
-
-
+.collection-table{
+    text-align:center;
+    font-size: x-large;
+}
+img{
+    width: 200px;
+}
 
 footer{
     display: flex;

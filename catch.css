@@ -60,11 +60,10 @@ img{
 }
 .encounter-button{
     padding: 3vh 3vw;
-    
-    
 }
-
-
+.catch-messages p{
+    padding: 1vh 3vw;
+}
 footer{
     display: flex;
     background-color: gray;
