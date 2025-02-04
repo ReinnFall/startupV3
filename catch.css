@@ -45,8 +45,24 @@ main{
 }
 main h1{
     text-align: center;
+    
 }
-
+img{
+    width: 96vw;
+    
+}
+.encounter{
+    display: flex;
+    flex-direction: column;
+    padding: 3vh 3vw;
+    align-items: center;
+    justify-content: center;
+}
+.encounter-button{
+    padding: 3vh 3vw;
+    
+    
+}
 
 
 footer{
