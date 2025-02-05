@@ -13,6 +13,9 @@ body{
     min-height: 100vh;
     flex: 1;
 }
+h1{
+    font-weight: normal;
+}
 
 header{
     background-color: gray;
@@ -22,6 +25,7 @@ header{
     padding: 2vh 3vw;
     width: 100vw;
     flex: 1 0 auto;
+    font-size: 3vh;
 }
 nav{
     font-size: 1.5vw;
@@ -52,6 +56,7 @@ main h1{
     height: 100%;
     text-align:center;
     font-size: x-large;
+    padding: 25px;
 }
 .pokedex-table tbody {
     height: 100%;
@@ -76,7 +81,7 @@ footer{
     flex: 1 0 auto;
     color: black;
     text-decoration: none;
-    font-size: 1.5vw;
+    font-size: 3vh;
 }
 footer a {
     color: inherit; 

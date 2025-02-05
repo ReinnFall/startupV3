@@ -13,6 +13,9 @@ body{
     min-height: 100vh;
     flex: 1;
 }
+h1{
+    font-weight: normal;
+}
 
 header{
     background-color: gray;
@@ -22,9 +25,10 @@ header{
     padding: 2vh 3vw;
     width: 100vw;
     flex: 1 0 auto;
+    font: 4vh;
 }
 nav{
-    font-size: 1.5vw;
+    font-size: 3vh;
     display: flex;
     gap: 2.5vw;
 }
@@ -42,6 +46,7 @@ main{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-size: 1.5rem;
 }
 main h1{
     text-align: center;
@@ -50,6 +55,11 @@ main h1{
 img{
     width: 96vw;
     
+}
+button{
+    width: 20vw;
+    height: 5vh;
+    font-size: 2vw;
 }
 .encounter{
     display: flex;
@@ -72,7 +82,7 @@ footer{
     flex: 1 0 auto;
     color: black;
     text-decoration: none;
-    font-size: 1.5vw;
+    font-size: 3vh;
 }
 footer a {
     color: inherit; 
