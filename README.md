@@ -45,7 +45,7 @@ For this deliverable, I did the following:
 - [x] **Header, footer, and main content body** - Each HTML file has its own css file. Headers and footers are identical.
 - [x] **Navigation elements** - All Navigation elements are on the top right of the page. They remain consistent between pages.
 - [x] **Responsive to window resizing** - I used flex as well as sizing things with vh and vw.
-- [x] **Application elements** - I centered most of my content in the middle of the page. Flex helped with this.
+- [x] **Application elements** - I centered most of my content in the middle of the page. Flex helped with this. I also used bootstrap on my login buttons.
 - [x] **Application text content** - Changed all my text to this font-family: Arial, Helvetica, sans-serif. Not too crazy but I think it looks nice.
 - [x] **Application images** - I adjusted tables and images within pokedex and collection pages to take up the full space in my main. 
 
