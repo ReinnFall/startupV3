@@ -28,7 +28,7 @@ header{
     font-size: 3vh;
 }
 nav{
-    font-size: 1.5vw;
+    /* font-size: 1.5vw; */
     display: flex;
     gap: 2.5vw;
 }
