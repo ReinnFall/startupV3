@@ -38,6 +38,17 @@ For this deliverable I did the following:
 - [x] **DB data placeholder** - My collection and pokedex page both have very large hardcoded tables that act as placeholders for the data that will be stored in them. I will change the collection tables to allocate dynamically with javascript.
 - [x] **WebSocket placeholder** - The Player Catches section on the catch page is a placeholder for future WebSocket implementation.
 
+## CSS deliverable
+
+For this deliverable, I did the following:
+
+- [x] **Header, footer, and main content body** - Each HTML file has its own css file. Headers and footers are identical.
+- [x] **Navigation elements** - All Navigation elements are on the top right of the page. They remain consistent between pages.
+- [x] **Responsive to window resizing** - I used flex as well as sizing things with vh and vw.
+- [x] **Application elements** - I centered most of my content in the middle of the page. Flex helped with this.
+- [x] **Application text content** - Changed all my text to this font-family: Arial, Helvetica, sans-serif. Not too crazy but I think it looks nice.
+- [x] **Application images** - I adjusted tables and images within pokedex and collection pages to take up the full space in my main. 
+
 ### Design
 
 ![loginBrainstorm](/images/loginBrainstorm.jpg)
