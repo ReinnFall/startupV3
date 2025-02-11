@@ -5,3 +5,6 @@
 ssh -i ~/Documents/BYU\ Assignments/2025\ Winter/CS260/GallantGuard475.pem ubuntu@pokemoncatch.click
 
 ./deployFiles.sh -k ~/Documents/BYU\ Assignments/2025\ Winter/CS260/GallantGuard475.pem -h pokemoncatch.click -s startup
+
+npm run dev
+o to open "go live" page
