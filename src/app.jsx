@@ -2,24 +2,43 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import { Login } from './login/login';
+import { Catch } from './catch/catch';
+import { Collection } from './collection/collection';
+import { Pokedex } from './pokedex/pokedex';
+
 export default function App() {
     return (
-        <div>
-            <header>
-                <h1> Pokemon Catch</h1>
-                <nav>
-                    <a href="index.html">Home</a>
-                    <a href="catch.html">Catch</a>
-                    <a href="collection.html">Collection</a>
-                    <a href="pokedex.html">Pokedex</a>
-                </nav>
-            </header>
+        <BrowserRouter>
+            <div>
+                <header>
+                    <h1> Pokemon Catch</h1>
+                    <nav>
+                        <NavLink to="">Home</NavLink>
+                        <NavLink to="catch">Catch</NavLink>
+                        <NavLink to="collection">Collection</NavLink>
+                        <NavLink to="pokedex">Pokedex</NavLink>
+                    </nav>
+                </header>
 
-            <main>App components go here</main>
+                <main>
+                    <Routes>
+                        <Route path='/' element={<Login />} exact />
+                        <Route path='/catch' element={<Catch />} />
+                        <Route path='/collection' element={<Collection />} />
+                        <Route path='/pokedex' element={<Pokedex />} />
+                        <Route path='*' element={<NotFound />} />
+                    </Routes>
+                </main>
 
-            <footer>
-                <a href="https://github.com/ReinnFall/startupV3"> Github Link</a>
-            </footer>
-        </div>
+                <footer>
+                    <a href="https://github.com/ReinnFall/startupV3"> Github Link</a>
+                </footer>
+            </div>
+        </BrowserRouter>
     );
+}
+function NotFound() {
+    return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
 }
