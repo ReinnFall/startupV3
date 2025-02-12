@@ -16,7 +16,7 @@ export default function App() {
                     <h1> Pokemon Catch</h1>
                     <nav>
                         <NavLink to="">Home</NavLink>
-                        <NavLink to="catch">Catch</NavLink>
+                        <NavLink to='catch'>Catch</NavLink>
                         <NavLink to="collection">Collection</NavLink>
                         <NavLink to="pokedex">Pokedex</NavLink>
                     </nav>
