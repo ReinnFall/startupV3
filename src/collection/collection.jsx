@@ -1,4 +1,5 @@
 import React from 'react';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './collection.css';
 
 export function Collection() {
@@ -9,11 +10,11 @@ export function Collection() {
                 <tr>
                     <td>
                         <p>Poliwhirl #61</p>
-                        <img src="images/poliwhirl.ico" alt="poliwhirl"></img>
+                        <img src="../../images/poliwhirl.ico" alt="poliwhirl"></img>
                     </td>
                     <td>
                         <p>Poliwhirl #61</p>
-                        <img src="images/poliwhirl.ico" alt="poliwhirl"></img> 
+                        <img src="../../images/poliwhirl.ico" alt="poliwhirl"></img> 
                     </td>
                     <td>
                         <p>Poliwhirl #61</p>

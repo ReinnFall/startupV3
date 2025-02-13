@@ -1,4 +1,6 @@
 import React from 'react';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import './login.css';
 
 export function Login() {
   return (
@@ -14,8 +16,10 @@ export function Login() {
                     <div>Password</div>
                     <input type="password" placeholder="password" />
                 </div>
-                <button type="submit" class="btn btn-primary">Login</button>
-                <button type="submit" class="btn btn-primary">Create</button>
+                <div className="button-area">
+                    <button type="submit" className="btn btn-primary login-button">Login</button>
+                    <button type="submit" className="btn btn-primary create-button">Create</button>
+                </div>
             </form>
         </div>
     </main>

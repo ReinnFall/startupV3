@@ -1,0 +1,28 @@
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    border: 10px black;
+}
+.login > h1{
+    text-align: center;
+    font-size: 7rem;
+}
+.login{
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5vw;
+    
+    /* padding: 15px; */
+    /* border: 1px solid #ccc; adds a thin border around the div  */
+}
+.button-area{
+    padding: 15px;
+    display: flex;
+    gap: 75px;
+
+}

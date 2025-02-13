@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -20,7 +20,7 @@ h1{
 header{
     background-color: gray;
     display: flex;
-    justify-content: space-between; /* Gives a space in between nav and login */
+    justify-content: space-between; 
     align-items: center;
     padding: 2vh 3vw;
     width: 100vw;
@@ -42,7 +42,7 @@ nav a:hover {
 }
 nav a:visited{
     color:black; 
- }
+ } */
 
 main{
     display: flex;
@@ -51,16 +51,21 @@ main{
     align-items: center;
     height: 100vh;
     font-size: 1.5rem;
+
 }
-main h1{
+main > h1{
     text-align: center;
+    /* font-size: 200px; */
     
 }
-img{
+.encounter img{
     width: 96vw;
+    border: 10px black;
+    /* position: absolute; */
+    
     
 }
-button{
+.encounter-button button{
     width: 20vw;
     height: 5vh;
     font-size: 2vw;
@@ -78,7 +83,7 @@ button{
 .catch-messages p{
     padding: 1vh 3vw;
 }
-footer{
+/* footer{
     display: flex;
     background-color: gray;
     padding: 2vh 3vw;
@@ -94,4 +99,4 @@ footer a {
 }
 footer a:hover{
     background-color: #555;
-}
+} */
