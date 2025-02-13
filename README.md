@@ -49,6 +49,14 @@ For this deliverable, I did the following:
 - [x] **Application text content** - Changed all my text to this font-family: Arial, Helvetica, sans-serif. Not too crazy but I think it looks nice.
 - [x] **Application images** - I adjusted tables and images within pokedex and collection pages to take up the full space in my main. 
 
+## React P1 
+For this deliverable, I did the following:
+
+- [x] **Vite** - Application is bundled with vite.
+- [x] **React Components** - I now have react components that contain my css and html.
+- [x] **React Router** - I use BrowserRouter and Routes to make my website one page.
+- [x] **CSS fixes** - I had to fix some issues with css interacting with other pages. 
+
 ### Design
 
 ![loginBrainstorm](/images/loginBrainstorm.jpg)
