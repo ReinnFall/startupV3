@@ -10,27 +10,27 @@ export function Collection() {
                 <tr>
                     <td>
                         <p>Poliwhirl #61</p>
-                        <img src="../../images/poliwhirl.ico" alt="poliwhirl"></img>
+                        <img src="/poliwhirl.ico"alt="poliwhirl"></img>
                     </td>
                     <td>
                         <p>Poliwhirl #61</p>
-                        <img src="../../images/poliwhirl.ico" alt="poliwhirl"></img> 
+                        <img src="/poliwhirl.ico" alt="poliwhirl"></img> 
                     </td>
                     <td>
                         <p>Poliwhirl #61</p>
-                        <img src="images/poliwhirl.ico" alt="poliwhirl"></img> 
+                        <img src="/poliwhirl.ico"alt="poliwhirl"></img> 
                     </td>
                     <td>
                         <p>Poliwhirl #61</p>
-                        <img src="images/poliwhirl.ico" alt="poliwhirl"></img> 
+                        <img src="/poliwhirl.ico" alt="poliwhirl"></img> 
                     </td>
                     <td>
                         <p>Poliwhirl #61</p>
-                        <img src="images/poliwhirl.ico" alt="poliwhirl"></img> 
+                        <img src="/poliwhirl.ico" alt="poliwhirl"></img> 
                     </td>
                     <td>
                         <p>Poliwhirl #61</p>
-                        <img src="images/poliwhirl.ico" alt="poliwhirl"></img>
+                        <img src="/poliwhirl.ico" alt="poliwhirl"></img>
                     </td>
                 </tr>
             </thead>
