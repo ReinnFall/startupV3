@@ -16,8 +16,13 @@ export default function App() {
                     <h1> Pokemon Catch</h1>
                     <nav>
                         <NavLink to="">Home</NavLink>
+
+                        {authState === AuthState.Authenticated && (
                         <NavLink to='catch'>Catch</NavLink>
+                        )}
+                        {authState === AuthState.Authenticated && (
                         <NavLink to="collection">Collection</NavLink>
+                        )}
                         <NavLink to="pokedex">Pokedex</NavLink>
                     </nav>
                 </header>

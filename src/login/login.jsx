@@ -2,7 +2,7 @@ import React from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './login.css';
 
-export function Login() {
+export function Login({userName, authState, onAuthChange}) {
   return (
     <main>
         <div className="login">
