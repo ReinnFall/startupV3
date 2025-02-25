@@ -2,9 +2,32 @@ import React from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './login.css';
 
+import { Unauthenticated } from './unauthenticated';
+import { Authenticated } from './authenticated';
+import { AuthState } from './authState';
+
 export function Login({userName, authState, onAuthChange}) {
   return (
-    <main>
+    <main className='container-fluid bg-secondary text-center'>
+    <div>
+      {authState !== AuthState.Unknown && <h1>Login</h1>}
+      {authState === AuthState.Authenticated && (
+        <Authenticated userName={userName} onLogout={() => onAuthChange(userName, AuthState.Unauthenticated)} />
+      )}
+      {authState === AuthState.Unauthenticated && (
+        <Unauthenticated
+          userName={userName}
+          onLogin={(loginUserName) => {
+            onAuthChange(loginUserName, AuthState.Authenticated);
+          }}
+        />
+      )}
+    </div>
+  </main>
+  );
+}
+
+{/* <main>
         <div className="login">
             <h1> Login</h1>
             <form method="get" action="catch.html">
@@ -22,6 +45,4 @@ export function Login({userName, authState, onAuthChange}) {
                 </div>
             </form>
         </div>
-    </main>
-  );
-}
+    </main> */}

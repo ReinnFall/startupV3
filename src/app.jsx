@@ -7,8 +7,14 @@ import { Login } from './login/login';
 import { Catch } from './catch/catch';
 import { Collection } from './collection/collection';
 import { Pokedex } from './pokedex/pokedex';
+import { AuthState } from './login/authState';
+
 
 export default function App() {
+    const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+    const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+    const [authState, setAuthState] = React.useState(currentAuthState);
+    
     return (
         <BrowserRouter>
             <div>
@@ -29,8 +35,20 @@ export default function App() {
 
                 <main>
                     <Routes>
-                        <Route path='/' element={<Login />} exact />
-                        <Route path='/catch' element={<Catch />} />
+                        <Route path='/' element={
+                            <Login
+                            userName={userName}
+                            authState={authState}
+                            onAuthChange={(userName, authState) => {
+                              setAuthState(authState);
+                              setUserName(userName);
+                                }}
+                            />
+                        } 
+                        exact 
+                        />
+
+                        <Route path='/catch' element={<Catch userName={userName} />} />
                         <Route path='/collection' element={<Collection />} />
                         <Route path='/pokedex' element={<Pokedex />} />
                         <Route path='*' element={<NotFound />} />
