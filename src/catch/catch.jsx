@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { usePokemonContext } from '../context/PokemonContext';
 import './catch.css'
 
@@ -29,10 +29,19 @@ export function Catch() {
     if (encountered) {
       addPokemon(encountered); // Store the caught Pokemon in global state
     }
-    setCurrentImage(defaultImage);
+    setCurrentImage(grassDefault);
     setEncountered(null);
     setButtonState("encounter");
   };
+
+      // **Ensure UI updates after catching**
+  useEffect(() => {
+    if (!encountered) {
+      setCurrentImage(grassDefault);
+      setButtonState("encounter");
+    }
+  }, [encountered]);
+  
 
   return (
     <main>
