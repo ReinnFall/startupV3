@@ -8,6 +8,7 @@ import { Catch } from './catch/catch';
 import { Collection } from './collection/collection';
 import { Pokedex } from './pokedex/pokedex';
 import { AuthState } from './login/authState';
+import { PokemonProvider } from './context/PokemonContext';
 
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
     const [authState, setAuthState] = React.useState(currentAuthState);
 
     return (
+        <PokemonProvider>
         <BrowserRouter>
             <div>
                 <header>
@@ -60,6 +62,7 @@ export default function App() {
                 </footer>
             </div>
         </BrowserRouter>
+        </PokemonProvider>
     );
 }
 function NotFound() {
