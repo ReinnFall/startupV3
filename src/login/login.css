@@ -5,13 +5,15 @@ main{
     align-items: center;
     height: 100vh;
     border: 10px black;
-    --bs-bg-opacity: 0;
+    /* --bs-bg-opacity: 0; */
 
 }
-.login > h1{
+/* .login > h1{
     text-align: center;
     font-size: 7rem;
-}
+    display: flex;
+    justify-content: center;
+} */
 .login{
     font-size: 1.5rem;
     display: flex;
@@ -26,5 +28,21 @@ main{
     padding: 15px;
     display: flex;
     gap: 75px;
-
 }
+.custom-btn{
+    background-color: red;  
+    color: white;               
+    padding: 12px 24px;         
+    border: none;               
+    border-radius: 4px;         /*Rounded corners */
+    font-size: 16px;            
+    cursor: pointer;            /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin: 10px;
+  }
+
+/* Hover state */
+.custom-btn:hover {
+  background-color: blue;
+}
+
