@@ -21,14 +21,14 @@ export function Unauthenticated(props) {
   return (
     <>
       <div>
-        <form method="get" action="catch.html">
+        <form method="get">
             <div>
                 {/* <div>Username</div> */}
-                <input type="text" placeholder="Username" value={userName} onChange={(e) => setUserName(e.target.value)}/>
+                <input type="text" className='inputBar' placeholder="Username" value={userName} onChange={(e) => setUserName(e.target.value)}/>
             </div>
             <div>
                 {/* <div>Password</div> */}
-                <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                <input type="password" className='inputBar' placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
             </div>
         </form>
         <Button className='custom-btn' onClick={() => loginUser()} disabled={!userName || !password}>
