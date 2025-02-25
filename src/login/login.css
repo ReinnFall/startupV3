@@ -5,7 +5,8 @@ main{
     align-items: center;
     height: 100vh;
     border: 10px black;
-    background-color: white;
+    --bs-bg-opacity: 0;
+
 }
 .login > h1{
     text-align: center;
