@@ -24,6 +24,18 @@ main{
     /* padding: 15px; */
     /* border: 1px solid #ccc; adds a thin border around the div  */
 }
+form{
+    padding: 15px;;
+}
+.inputBar{
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5vw;   
+    padding: 10px; 
+    border: 1px solid black;
+}
 .button-area{
     padding: 15px;
     display: flex;
@@ -44,6 +56,9 @@ main{
 /* Hover state */
 .custom-btn:hover {
   background-color: darkblue;
+}
+.button-container{
+    text-align: center;
 }
 
 
