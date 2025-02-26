@@ -57,6 +57,11 @@ For this deliverable, I did the following:
 - [x] **React Router** - I use BrowserRouter and Routes to make my website one page.
 - [x] **CSS fixes** - I had to fix some issues with css interacting with other pages. 
 
+## React P2
+For this deliverable, I did the following:
+- [x] **All functionality implemented or mocked out** - The main functionaility of catching a Pokemon on the catch page and then storing that Pokemon to the collection page is complete. I store the data using localStorage which will be changed. The login method is the same one used in simon. I have reviewed that code and understand how it works. I have also set up a setInterval function to mock how the catch messages will work when I implement the WebSocket phase. I have also decided to postpone the Pokedex functionality. There are no required features of the Pokedex section that I am not already doing. I will implement this for fun if I have time during this semester or after this class. 
+- [x] **Hooks** - I use useState and useEffect in my implementation of the catch mechanic as well as the catch messages.
+
 ### Design
 
 ![loginBrainstorm](/images/loginBrainstorm.jpg)
