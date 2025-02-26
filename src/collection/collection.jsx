@@ -6,7 +6,6 @@ export function Collection() {
     const {caughtPokemon, removePokemon} = usePokemonContext();
 
   return (
-    <main>
     <div className="collection-container">
         <h1>Collection</h1>
         {caughtPokemon.length === 0 ? (
@@ -23,7 +22,7 @@ export function Collection() {
             </div>
         )}
     </div>
-</main>
+
   );
 }
 
