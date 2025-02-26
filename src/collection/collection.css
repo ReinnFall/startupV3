@@ -2,13 +2,21 @@
 main{
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    align-items: center; */
-    height: 100vh;
+    flex: 1;
+    width: 100%;
+    /* padding-bottom: 50px; */
+    /* height: 100vh; */
+    /* min-height: 100vh; */
+    
+}
+p{
+    text-align: center;
 }
 .collection-container {
-    text-align: center;
-    padding: 20px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 100vh;
 }
 
 /* Responsive Grid */
@@ -19,6 +27,8 @@ main{
     justify-content: center;
     max-width: 1000px;
     margin: 0 auto;
+    grid-auto-rows: minmax(150px, auto); 
+
 }
 
 /* Each Pokémon Card */
@@ -51,5 +61,6 @@ button {
 button:hover {
     background-color: rgb(21, 82, 148);
 }
+
 
 
