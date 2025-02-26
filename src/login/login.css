@@ -30,20 +30,20 @@ main{
     gap: 75px;
 }
 .custom-btn{
-    background-color: red;  
+    background-color: blue;  
     color: white;               
     padding: 12px 24px;         
     border: none;               
-    border-radius: 4px;         /*Rounded corners */
+    border-radius: 4px;
     font-size: 16px;            
-    cursor: pointer;            /* Pointer cursor on hover */
+    cursor: pointer;
     transition: background-color 0.3s ease, transform 0.1s ease;
     margin: 10px;
   }
 
 /* Hover state */
 .custom-btn:hover {
-  background-color: blue;
+  background-color: darkblue;
 }
 
 

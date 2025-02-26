@@ -13,7 +13,14 @@ main > h1{
     /* font-size: 200px; */
     
 }
-.encounter img{
+.catch-container{
+    display: flex;
+    flex-direction: column;
+    padding: 3vh 3vw;
+    align-items: center;
+    justify-content: center;
+}
+.default-image{
     width: 96vw;
     border: 10px black;
     image-rendering: pixelated;
@@ -26,16 +33,46 @@ main > h1{
     height: 5vh;
     font-size: 2vw;
 }
-.encounter{
-    display: flex;
-    flex-direction: column;
-    padding: 3vh 3vw;
-    align-items: center;
-    justify-content: center;
+.encounter-btn{
+    background-color: green;  
+    color: white;               
+    padding: 12px 24px;         
+    border: none;               
+    border-radius: 4px;
+    font-size: 16px;            
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin: 10px;
+  }
+
+/* Hover state */
+.encounter-btn:hover {
+  background-color: darkgreen;
 }
+
+.catch-btn{
+    background-color: red;  
+    color: white;               
+    padding: 12px 24px;         
+    border: none;               
+    border-radius: 4px;
+    font-size: 16px;            
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin: 10px;
+  }
+
+/* Hover state */
+.catch-btn:hover {
+  background-color: darkred;
+}
+
+
 .encounter-button{
     padding: 3vh 3vw;
 }
 .catch-messages p{
     padding: 1vh 3vw;
 }
+
+

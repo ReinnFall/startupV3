@@ -6,12 +6,13 @@ import './catch.css'
 
 export function Catch() {
   const {addPokemon} = usePokemonContext();
-  const grassDefault = {id:0, src: "/grass.png", name:"default"};
+  const grassDefault = {id:0, src: "/grass.png", name:"Click the button to find a Pokemon!"};
   const encounters = [
     {id: 1, src:"/bulbasaur.png", name:"Bulbasaur"},
     {id: 4, src:"/charmander.png", name:"Charmander"},
     {id: 7, src:"/squirtle.png", name:"Squirtle"}
   ];
+
 
   const [currentImage, setCurrentImage] = useState(grassDefault);
   const [encountered, setEncountered] = useState(null);
@@ -42,16 +43,21 @@ export function Catch() {
     }
   }, [encountered]);
   
+  
 
   return (
     <main>
          <div className="catch-container">
-            <img src={currentImage.src} alt={currentImage.name} />
-            <h3>{currentImage.name}</h3>
+         <h1>{currentImage.name}</h1>
+            <img
+              src = {currentImage.src}
+              alt = {currentImage.name}
+              className={currentImage.id === 0 ? "default-image": "pokemon-image"}
+            />
             {buttonState === "encounter" ? (
-              <button onClick={handleEncounter}>Encounter</button>
+              <button className='encounter-btn' onClick={handleEncounter}>Encounter</button>
             ) : (
-              <button onClick={handleCatch}>Catch</button>
+              <button className='catch-btn' onClick={handleCatch}>Catch</button>
             )}
         </div>
         <div className="catch-messages">
