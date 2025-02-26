@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 import { usePokemonContext } from '../context/PokemonContext';
+import  CatchMessages from './catchMessages';
 import './catch.css'
 
 
@@ -212,12 +213,7 @@ export function Catch() {
               <button className='catch-btn' onClick={handleCatch}>Catch</button>
             )}
         </div>
-        <div className="catch-messages">
-            <h1>Player Catches</h1>
-            <p>John caught a Pikachu!</p>
-            <p>Sarah caught a Mewtwo!</p>
-            <p>Eric caught a Pidgey!</p>
-        </div>
+        <CatchMessages/>
     </main>
   );
 }
