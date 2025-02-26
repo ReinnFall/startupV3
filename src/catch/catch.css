@@ -22,11 +22,11 @@ main > h1{
 }
 .default-image{
     width: 96vw;
-    border: 10px black;
     image-rendering: pixelated;
-    /* position: absolute; */
-    
-    
+}
+.pokemon-image{
+    width: 30vw;
+    image-rendering: pixelated;
 }
 .encounter-button button{
     width: 20vw;

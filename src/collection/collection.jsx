@@ -7,23 +7,23 @@ export function Collection() {
 
   return (
     <main>
-       <div className="collection-container">
-        <h2>Caught Pokemon</h2>
+    <div className="collection-container">
+        <h1>Caught Pokémon</h1>
         {caughtPokemon.length === 0 ? (
-            <p>No Pokemon caught yet!</p>
+            <p>No Pokémon caught yet!</p>
         ) : (
-            <ul>
-            {caughtPokemon.map((Pokemon) => (
-                <li key={Pokemon.id}>
-                <img src={Pokemon.src} alt={Pokemon.name} width="100" />
-                <p>{Pokemon.name}</p>
-                <button onClick={() => removePokemon(Pokemon.id)}>Release</button>
-                </li>
-            ))}
-            </ul>
+            <div className="pokemon-grid">
+                {caughtPokemon.map((pokemon) => (
+                    <div key={pokemon.uniqueId} className="pokemon-slot">
+                        <img src={pokemon.src} alt={pokemon.name} />
+                        <p>{pokemon.name}</p>
+                        <button onClick={() => removePokemon(pokemon.uniqueId)}>Release</button>
+                    </div>
+                ))}
+            </div>
         )}
-        </div>
-    </main>
+    </div>
+</main>
   );
 }
 

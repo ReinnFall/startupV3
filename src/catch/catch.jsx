@@ -28,7 +28,11 @@ export function Catch() {
 
   const handleCatch = () => {
     if (encountered) {
-      addPokemon(encountered); // Store the caught Pokemon in global state
+      const uniquePokemon = {
+        ...encountered,
+        uniqueId: Date.now() + Math.random(), // Generates a unique ID
+      };
+      addPokemon(uniquePokemon); // Store the caught Pokemon in global state
     }
     setCurrentImage(grassDefault);
     setEncountered(null);

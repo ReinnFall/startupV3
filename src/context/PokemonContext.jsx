@@ -27,13 +27,19 @@ export const PokemonProvider = ({ children }) => {
   };
 
   // Remove a Pokemon by ID
-  const removePokemon = (id) => {
-    setCaughtPokemon((prev) => prev.filter((Pokemon) => Pokemon.id !== id));
+  const removePokemon = (uniqueId) => {
+    console.log("Before removing:", caughtPokemon); // 🛠 Log full list before deletion
+    console.log("Removing Pokémon with uniqueId:", uniqueId);
+    setCaughtPokemon((prev) => {
+      const newList = prev.filter((pokemon) => pokemon.uniqueId !== uniqueId);
+      console.log("After removing:", newList); // 🛠 Log list after deletion
+      return newList;
+  });
   };
-
   return (
     <PokemonContext.Provider value={{ caughtPokemon, addPokemon, removePokemon }}>
       {children}
     </PokemonContext.Provider>
   );
 };
+// setCaughtPokemon((prev) => prev.filter((pokemon) => pokemon.uniqueId !== uniqueId));
