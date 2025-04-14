@@ -8,7 +8,7 @@ export const usePokemonContext = () => useContext(PokemonContext);
 export const PokemonProvider = ({ children }) => {
   const [caughtPokemon, setCaughtPokemon] = useState([]);
 
-  // Load data from localStorage on mount
+  // Load data from localStorage
   useEffect(() => {
     const storedPokemon = localStorage.getItem("caughtPokemon");
     if (storedPokemon) {
