@@ -22,17 +22,26 @@ export const PokemonProvider = ({ children }) => {
   }, [caughtPokemon]);
 
   // Add a new Pokemon
-  const addPokemon = (Pokemon) => {
-    setCaughtPokemon((prev) => [...prev, Pokemon]);
+  const addPokemon = async (Pokemon) => {
+    try{
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name.toLowerCase()}`);
+      const data = await reposnse.json();
+      const pokemonTypes = data.pokemonTypes.map((t) => t.type.name);
+      const pokemonWithType = {...Pokemon, types};
+      setCaughtPokemon((prev)=> [...prev,pokemonWithType]);
+    } catch(error){
+      setCaughtPokemon((prev) => [...prev, Pokemon]);
+    }
+    
   };
 
   // Remove a Pokemon by ID
   const removePokemon = (uniqueId) => {
-    console.log("Before removing:", caughtPokemon); // 🛠 Log full list before deletion
+    console.log("Before removing:", caughtPokemon); // Log full list before deletion
     console.log("Removing Pokémon with uniqueId:", uniqueId);
     setCaughtPokemon((prev) => {
       const newList = prev.filter((pokemon) => pokemon.uniqueId !== uniqueId);
-      console.log("After removing:", newList); // 🛠 Log list after deletion
+      console.log("After removing:", newList); // Log list after deletion
       return newList;
   });
   };

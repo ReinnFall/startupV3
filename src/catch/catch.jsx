@@ -175,13 +175,13 @@ export function Catch() {
     setButtonState("catch");
   };
 
-  const handleCatch = () => {
+  const handleCatch = async () => {
     if (encountered) {
       const uniquePokemon = {
         ...encountered,
         uniqueId: Date.now() + Math.random(), // Generates a unique ID
       };
-      addPokemon(uniquePokemon); // Store the caught Pokemon in global state
+      await addPokemon(uniquePokemon); // Store the caught Pokemon in global state
     }
     setCurrentImage(grassDefault);
     setEncountered(null);
