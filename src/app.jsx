@@ -31,7 +31,7 @@ export default function App() {
                         {authState === AuthState.Authenticated && (
                         <NavLink to="collection">Collection</NavLink>
                         )}
-                        <NavLink to="pokedex">Pokedex</NavLink>
+                        {/* <NavLink to="pokedex">Pokedex</NavLink> */}
                     </nav>
                 </header>
 
@@ -52,7 +52,7 @@ export default function App() {
 
                         <Route path='/catch' element={<Catch userName={userName} />} />
                         <Route path='/collection' element={<Collection />} />
-                        <Route path='/pokedex' element={<Pokedex />} />
+                        {/* <Route path='/pokedex' element={<Pokedex />} /> */}
                         <Route path='*' element={<NotFound />} />
                     </Routes>
                 </main>
