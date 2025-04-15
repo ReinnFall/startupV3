@@ -43,7 +43,10 @@ export const PokemonProvider = ({ children }) => {
     try{
       const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${Pokemon.name.toLowerCase()}`);
       const data = await response.json();
-      const types = data.types.map((t) => t.type.name);
+      const types = data.types.map((t) => {
+        const name = t.type.name;
+        return name.charAt(0).toUpperCase() + name.slice(1);
+      });
       const pokemonWithType = {...Pokemon, types};
 
       const saveRes = await fetch('/api/pokemon/add', {
