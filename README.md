@@ -62,6 +62,17 @@ For this deliverable, I did the following:
 - [x] **All functionality implemented or mocked out** - The main functionaility of catching a Pokemon on the catch page and then storing that Pokemon to the collection page is complete. I store the data using localStorage which will be changed. The login method is the same one used in simon. I have reviewed that code and understand how it works. I have also set up a setInterval function to mock how the catch messages will work when I implement the WebSocket phase. I have also decided to postpone the Pokedex functionality. There are no required features of the Pokedex section that I am not already doing. I will implement this for fun if I have time during this semester or after this class. 
 - [x] **Hooks** - I use useState and useEffect in my implementation of the catch mechanic as well as the catch messages.
 
+## 🚀 Service deliverable
+
+For this deliverable I did the following.
+
+- [x] **Node.js/Express HTTP service** - Installed Express with NPM. Default port on 4000.js. Found in index.js
+- [x] **Static middleware for frontend** - Simple endpoints in service file - index.js.
+- [x] **Calls to third party endpoints** - When a Pokemon is generated an api call is made from PokeAPI that retrieves the type of that Pokemon. That information is then saved and displayed in the collection page. 
+- [x] **Backend service endpoints** - Simple endpoints in `service/index` for register, login, logout, add Pokemon, and get user's Pokemon.
+- [x] **Frontend calls service endpoints** - All mocked functionality removed from the frontend and replaced with calls to the service. The collection page is loaded from a get request and my addPokemon function calls a post request.
+- [x] **Supports registration, login, logout, and restricted endpoint** - User must login in now to be able to catch Pokemon and see their collection. Throws an error if the wrong password is entered or tries to login with an account taht isn't registered.
+
 ### Design
 
 ![loginBrainstorm](/images/loginBrainstorm.jpg)
