@@ -16,8 +16,8 @@ export function Collection() {
                     <div key={pokemon.uniqueId} className="pokemon-slot">
                         <img src={pokemon.src} alt={pokemon.name} />
                         <p>{pokemon.name}</p>
-                        {pokemon.pokemonTypes && 
-                        (<p className='pokemon-type'>Type: {pokemon.pokemonTypes.join(",")}</p>)}
+                        {pokemon.types && 
+                        (<p className='pokemon-type'>Type: {pokemon.types.join(",")}</p>)}
                         <button onClick={() => removePokemon(pokemon.uniqueId)}>Release</button>
                     </div>
                 ))}

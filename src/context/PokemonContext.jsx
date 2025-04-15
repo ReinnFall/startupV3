@@ -10,24 +10,54 @@ export const PokemonProvider = ({ children }) => {
 
   // Load data from localStorage
   useEffect(() => {
-    const storedPokemon = localStorage.getItem("caughtPokemon");
-    if (storedPokemon) {
-      setCaughtPokemon(JSON.parse(storedPokemon));
-    }
+    const fetchCaughtPokemon = async () => {
+      try {
+        const res = await fetch('/api/pokemon/list', {
+          credentials: 'include', // Include cookies for auth
+        });
+        if (res.ok) {
+          const data = await res.json();
+          setCaughtPokemon(data);
+        } else {
+          console.error("Failed to fetch caught Pokémon");
+        }
+      } catch (error) {
+        console.error("Error loading caught Pokémon", error);
+      }
+    };
+    fetchCaughtPokemon();
   }, []);
 
+  // const storedPokemon = localStorage.getItem("caughtPokemon");
+  //   if (storedPokemon) {
+  //     setCaughtPokemon(JSON.parse(storedPokemon));
+  //   }
+
   // Save to localStorage whenever caughtPokemon change
-  useEffect(() => {
-    localStorage.setItem("caughtPokemon", JSON.stringify(caughtPokemon));
-  }, [caughtPokemon]);
+  // useEffect(() => {
+  //   localStorage.setItem("caughtPokemon", JSON.stringify(caughtPokemon));
+  // }, [caughtPokemon]);
 
   // Add a new Pokemon
   const addPokemon = async (Pokemon) => {
     try{
-      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name.toLowerCase()}`);
-      const data = await reposnse.json();
-      const pokemonTypes = data.pokemonTypes.map((t) => t.type.name);
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${Pokemon.name.toLowerCase()}`);
+      const data = await response.json();
+      const types = data.types.map((t) => t.type.name);
       const pokemonWithType = {...Pokemon, types};
+
+      const saveRes = await fetch('/api/pokemon/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(pokemonWithType),
+        credentials: 'include',
+      });
+
+      if (!saveRes.ok) {
+        console.error("Failed to save Pokémon to backend");
+        return;
+      }
+
       setCaughtPokemon((prev)=> [...prev,pokemonWithType]);
     } catch(error){
       setCaughtPokemon((prev) => [...prev, Pokemon]);

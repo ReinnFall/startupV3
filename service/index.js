@@ -8,7 +8,7 @@ const authCookieName = 'token';
 
 // Users and their pokemon are saved in memory and disappear whenever the service is restarted.
 let users = [];
-let userPokemon = [];
+let userPokemon = {};
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
@@ -62,6 +62,16 @@ apiRouter.delete('/auth/logout', async (req, res) => {
   res.status(204).end();
 });
 
+// Middleware to verify that the user is authorized to call an endpoint
+const verifyAuth = async (req, res, next) => {
+    const user = await findUser('token', req.cookies[authCookieName]);
+    if (user) {
+      next();
+    } else {
+      res.status(401).send({ msg: 'Unauthorized' });
+    }
+  };
+
 apiRouter.post('/pokemon/add',verifyAuth, (req,res) => {
     const user = users.find(u=> u.token === req.cookies[authCookieName]);
     if(!user){
@@ -88,16 +98,8 @@ apiRouter.get('/pokemon/list', verifyAuth, (req, res) => {
     const collection = userPokemon[user.email] || [];
     res.send(collection);
   });
-  
-// Middleware to verify that the user is authorized to call an endpoint
-const verifyAuth = async (req, res, next) => {
-  const user = await findUser('token', req.cookies[authCookieName]);
-  if (user) {
-    next();
-  } else {
-    res.status(401).send({ msg: 'Unauthorized' });
-  }
-};
+
+
 
 
 // Default error handler
