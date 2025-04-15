@@ -4,6 +4,10 @@ const express = require('express');
 const uuid = require('uuid');
 const app = express();
 
+const client = new MongoClient(url);
+const db = client.db('pokemonPC');
+const collection = db.collection('pokemon');
+
 const authCookieName = 'token';
 
 // Users and their pokemon are saved in memory and disappear whenever the service is restarted.
