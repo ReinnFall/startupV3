@@ -71,7 +71,7 @@ For this deliverable I did the following.
 - [x] **Calls to third party endpoints** - When a Pokemon is generated an api call is made from PokeAPI that retrieves the type of that Pokemon. That information is then saved and displayed in the collection page. 
 - [x] **Backend service endpoints** - Simple endpoints in `service/index` for register, login, logout, add Pokemon, and get user's Pokemon.
 - [x] **Frontend calls service endpoints** - All mocked functionality removed from the frontend and replaced with calls to the service. The collection page is loaded from a get request and my addPokemon function calls a post request.
-- [x] **Supports registration, login, logout, and restricted endpoint** - User must login in now to be able to catch Pokemon and see their collection. Throws an error if the wrong password is entered or tries to login with an account taht isn't registered.
+- [x] **Supports registration, login, logout, and restricted endpoint** - User must login in now to be able to catch Pokemon and see their collection. Throws an error if the wrong password is entered or tries to login with an account taht isn't registered. My endpoints that are related to the users Pokemon are restricted with verifyAuth.
 
 ### Design
 
