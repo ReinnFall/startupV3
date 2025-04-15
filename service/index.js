@@ -6,9 +6,9 @@ const app = express();
 
 const authCookieName = 'token';
 
-// The scores and users are saved in memory and disappear whenever the service is restarted.
+// Users and their pokemon are saved in memory and disappear whenever the service is restarted.
 let users = [];
-let scores = [];
+let userPokemon = [];
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
@@ -62,6 +62,33 @@ apiRouter.delete('/auth/logout', async (req, res) => {
   res.status(204).end();
 });
 
+apiRouter.post('/pokemon/add',verifyAuth, (req,res) => {
+    const user = users.find(u=> u.token === req.cookies[authCookieName]);
+    if(!user){
+        return res.status(400).send({ msg: 'Not authorized' });
+    }
+    const pokemon = req.body;
+    if (!pokemon) {
+    return res.status(400).send({ msg: 'Missing Pokémon data' });
+    }
+
+    if(!userPokemon[user.email]){
+        userPokemon[user.email] = [];
+    }
+    userPokemon[user.email].push(pokemon);
+    res.status(201).send({ msg: 'Pokemon added!' });
+});
+
+apiRouter.get('/pokemon/list', verifyAuth, (req, res) => {
+    const user = users.find(u => u.token === req.cookies[authCookieName]);
+    if (!user) {
+      return res.status(401).send({ msg: 'Unauthorized' });
+    }
+  
+    const collection = userPokemon[user.email] || [];
+    res.send(collection);
+  });
+  
 // Middleware to verify that the user is authorized to call an endpoint
 const verifyAuth = async (req, res, next) => {
   const user = await findUser('token', req.cookies[authCookieName]);
@@ -71,6 +98,8 @@ const verifyAuth = async (req, res, next) => {
     res.status(401).send({ msg: 'Unauthorized' });
   }
 };
+
+
 // Default error handler
 app.use(function (err, req, res, next) {
     res.status(500).send({ type: err.name, message: err.message });
