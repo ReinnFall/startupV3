@@ -41,7 +41,7 @@ const pokemonCollection = db.collection('pokemon');
     await pokemonCollection.insertOne({ username, ...pokemon });
   }
   async function removePokemon(username, uniqueId) {
-    await pokemonCollection.deleteOne({ username, uniqueId });
+    await pokemonCollection.deleteOne({ username, uniqueId:parseFloat(uniqueId) });
   }
   module.exports = {
     getUser,

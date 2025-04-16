@@ -97,9 +97,16 @@ apiRouter.get('/pokemon/list', verifyAuth, async (req, res) => {
   
     const pokemon = await DB.getPokemonByUsername(user.username);
     res.send(pokemon);
-  });
+});
 
+apiRouter.delete('/pokemon/:uniqueId', verifyAuth, async (req, res) => {
+    const user = await findUser('token', req.cookies[authCookieName]);
+    if (!user) return res.status(401).send({ msg: 'Unauthorized' });
 
+    const uniqueId = req.params.uniqueId;
+    await DB.removePokemon(user.username, uniqueId);
+    res.status(200).send({ msg: 'Deleted' });
+});
 
 
 // Default error handler
