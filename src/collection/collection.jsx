@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { usePokemonContext } from '../context/PokemonContext';
 import './collection.css';
 
 export function Collection() {
-    const {caughtPokemon, removePokemon} = usePokemonContext();
+    const {caughtPokemon, removePokemon,loadPokemonFromDB} = usePokemonContext();
+
+    useEffect(() => {
+        loadPokemonFromDB();
+      }, []);
 
   return (
     <div className="collection-container">
@@ -28,83 +32,3 @@ export function Collection() {
   );
 }
 
-{/* <table className="collection-table">
-<thead>
-    <tr>
-        <td>
-            <p>Poliwhirl #61</p>
-            <img src="/poliwhirl.ico"alt="poliwhirl"></img>
-        </td>
-        <td>
-            <p>Poliwhirl #61</p>
-            <img src="/poliwhirl.ico" alt="poliwhirl"></img> 
-        </td>
-        <td>
-            <p>Poliwhirl #61</p>
-            <img src="/poliwhirl.ico"alt="poliwhirl"></img> 
-        </td>
-        <td>
-            <p>Poliwhirl #61</p>
-            <img src="/poliwhirl.ico" alt="poliwhirl"></img> 
-        </td>
-        <td>
-            <p>Poliwhirl #61</p>
-            <img src="/poliwhirl.ico" alt="poliwhirl"></img> 
-        </td>
-        <td>
-            <p>Poliwhirl #61</p>
-            <img src="/poliwhirl.ico" alt="poliwhirl"></img>
-        </td>
-    </tr>
-</thead>
-<tbody>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-</tbody>
-</table> */}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { usePokemonContext } from '../context/PokemonContext';
 
 import Button from 'react-bootstrap/Button';
 
@@ -7,6 +8,7 @@ import './authenticated.css';
 
 export function Authenticated(props) {
   const navigate = useNavigate();
+  const { resetPokemon } = usePokemonContext();
 
   function logout() {
     fetch(`/api/auth/logout`, {
@@ -16,7 +18,9 @@ export function Authenticated(props) {
         // Logout failed. Assuming offline
       })
       .finally(() => {
+        console.log("Running reset and props.onLogout");
         localStorage.removeItem('userName');
+        resetPokemon();
         props.onLogout();
       });
   }

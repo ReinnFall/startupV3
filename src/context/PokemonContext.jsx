@@ -8,29 +8,50 @@ export const usePokemonContext = () => useContext(PokemonContext);
 export const PokemonProvider = ({ children, username }) => {
   const [caughtPokemon, setCaughtPokemon] = useState([]);
 
-  // Load data from localStorage
-  useEffect(() => {
-    if(!username){
-      setCaughtPokemon([]);
-      return;
-    }
-    const fetchCaughtPokemon = async () => {
-      try {
-        const res = await fetch('/api/pokemon/list', {
-          credentials: 'include', // Include cookies for auth
-        });
-        if (res.ok) {
-          const data = await res.json();
-          setCaughtPokemon(data);
-        } else {
-          console.error("Failed to fetch caught Pokémon");
-        }
-      } catch (error) {
-        console.error("Error loading caught Pokémon", error);
+  const resetPokemon = () => {
+    setCaughtPokemon([]);
+  };
+  const loadPokemonFromDB = async () => {
+    try {
+      const res = await fetch('/api/pokemon/list', {
+        credentials: 'include',
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setCaughtPokemon(data);
+      } else {
+        console.error("Failed to fetch caught Pokémon");
       }
-    };
-    fetchCaughtPokemon();
+    } catch (error) {
+      console.error("Error loading caught Pokémon", error);
+    }
+  };
+  
+  useEffect(() => {
+    if(username){
+      loadPokemonFromDB();
+    } else{
+      setCaughtPokemon([]);
+    }
   }, [username]);
+
+  //   const fetchCaughtPokemon = async () => {
+  //     try {
+  //       const res = await fetch('/api/pokemon/list', {
+  //         credentials: 'include', // Include cookies for auth
+  //       });
+  //       if (res.ok) {
+  //         const data = await res.json();
+  //         setCaughtPokemon(data);
+  //       } else {
+  //         console.error("Failed to fetch caught Pokémon");
+  //       }
+  //     } catch (error) {
+  //       console.error("Error loading caught Pokémon", error);
+  //     }
+  //   };
+  //   fetchCaughtPokemon();
+  // }, [username]);
 
   // const storedPokemon = localStorage.getItem("caughtPokemon");
   //   if (storedPokemon) {
@@ -82,9 +103,10 @@ export const PokemonProvider = ({ children, username }) => {
     setCaughtPokemon((prev) => prev.filter((p) => p.uniqueId !== uniqueId));
   };
   return (
-    <PokemonContext.Provider value={{ caughtPokemon, addPokemon, removePokemon }}>
+    <PokemonContext.Provider value={{ caughtPokemon, addPokemon, removePokemon,resetPokemon,loadPokemonFromDB }}>
       {children}
     </PokemonContext.Provider>
   );
 };
+
 // setCaughtPokemon((prev) => prev.filter((pokemon) => pokemon.uniqueId !== uniqueId));
