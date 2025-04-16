@@ -73,6 +73,13 @@ For this deliverable I did the following.
 - [x] **Frontend calls service endpoints** - All mocked functionality removed from the frontend and replaced with calls to the service. The collection page is loaded from a get request and my addPokemon function calls a post request.
 - [x] **Supports registration, login, logout, and restricted endpoint** - User must login in now to be able to catch Pokemon and see their collection. Throws an error if the wrong password is entered or tries to login with an account taht isn't registered. My endpoints that are related to the users Pokemon are restricted with verifyAuth.
 
+## 🚀 DB/Login deliverable
+
+For this deliverable I did the following. 
+
+- [x] **Stores data in MongoDB** - User data and pokemon are stored in MongoDB in`service/database.js`. Each user now has a unique collection of Pokemon. When the user clicks on the collection page, their Pokemon from the database are loaded up rather than resetting each time the client resets.
+- [x] **Stores credentials in MongoDB** - Auth stored in MongoDB from `service/database.js`. User login info persists even after client resets.
+
 ### Design
 
 ![loginBrainstorm](/images/loginBrainstorm.jpg)
