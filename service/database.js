@@ -4,7 +4,7 @@ const config = require('./dbConfig.json');
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
 const db = client.db('pokemonPC');
-const collection = db.collection('pokemon');
+const userCollection = db.collection('user');
 
 // This will asynchronously test the connection and exit the process if it fails
 (async function testConnection() {
@@ -16,3 +16,25 @@ const collection = db.collection('pokemon');
       process.exit(1);
     }
   })();
+  function getUser(email) {
+    return userCollection.findOne({ username: username });
+  }
+  
+  function getUserByToken(token) {
+    return userCollection.findOne({ token: token });
+  }
+  
+  async function addUser(user) {
+    await userCollection.insertOne(user);
+  }
+  
+  async function updateUser(user) {
+    await userCollection.updateOne({ username: user.username }, { $set: user });
+  }
+
+  module.exports = {
+    getUser,
+    getUserByToken,
+    addUser,
+    updateUser
+  };
