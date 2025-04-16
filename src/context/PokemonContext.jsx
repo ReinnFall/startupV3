@@ -5,11 +5,15 @@ const PokemonContext = createContext();
 
 export const usePokemonContext = () => useContext(PokemonContext);
 
-export const PokemonProvider = ({ children }) => {
+export const PokemonProvider = ({ children, username }) => {
   const [caughtPokemon, setCaughtPokemon] = useState([]);
 
   // Load data from localStorage
   useEffect(() => {
+    if(!username){
+      setCaughtPokemon([]);
+      return;
+    }
     const fetchCaughtPokemon = async () => {
       try {
         const res = await fetch('/api/pokemon/list', {
@@ -26,7 +30,7 @@ export const PokemonProvider = ({ children }) => {
       }
     };
     fetchCaughtPokemon();
-  }, []);
+  }, [username]);
 
   // const storedPokemon = localStorage.getItem("caughtPokemon");
   //   if (storedPokemon) {
