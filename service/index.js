@@ -44,6 +44,7 @@ apiRouter.post('/auth/login', async (req, res) => {
   if (user) {
     if (await bcrypt.compare(req.body.password, user.password)) {
       user.token = uuid.v4();
+      await DB.updateUser(user);
       setAuthCookie(res, user.token);
       res.send({ username: user.username });
       return;
@@ -57,6 +58,7 @@ apiRouter.delete('/auth/logout', async (req, res) => {
   const user = await findUser('token', req.cookies[authCookieName]);
   if (user) {
     delete user.token;
+    DB.updateUser(user);
   }
   res.clearCookie(authCookieName);
   res.status(204).end();
@@ -89,13 +91,13 @@ apiRouter.post('/pokemon/add',verifyAuth, (req,res) => {
     res.status(201).send({ msg: 'Pokemon added!' });
 });
 
-apiRouter.get('/pokemon/list', verifyAuth, (req, res) => {
-    const user = users.find(u => u.token === req.cookies[authCookieName]);
+apiRouter.get('/pokemon/list', verifyAuth, async (req, res) => {
+    const user = await findUser('token', req.cookies[authCookieName]);
     if (!user) {
       return res.status(401).send({ msg: 'Unauthorized' });
     }
   
-    const collection = userPokemon[user.username] || [];
+    const collection = await DB.getPokemonByUsername(user.username);
     res.send(collection);
   });
 
