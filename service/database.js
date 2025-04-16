@@ -6,6 +6,7 @@ const client = new MongoClient(url);
 
 const db = client.db('pokemonPC');
 const userCollection = db.collection('user');
+const pokemonCollection = db.collection('pokemon');
 
 
 // This will asynchronously test the connection and exit the process if it fails
@@ -18,7 +19,7 @@ const userCollection = db.collection('user');
       process.exit(1);
     }
   })();
-  function getUser(email) {
+  function getUser(username) {
     return userCollection.findOne({ username: username });
   }
   
@@ -34,16 +35,13 @@ const userCollection = db.collection('user');
     await userCollection.updateOne({ username: user.username }, { $set: user });
   }
   async function getPokemonByUsername(username) {
-    const db = client.db('pokemonPC');
-    return await db.collection('pokemon').find({ username }).toArray();
+    return pokemonCollection.find({ username }).toArray();
   }
   async function addPokemonToUser(username, pokemon) {
-    const db = client.db('pokemonPC');
-    await db.collection('pokemon').insertOne({ username, ...pokemon });
+    await pokemonCollection.insertOne({ username, ...pokemon });
   }
   async function removePokemon(username, uniqueId) {
-    const db = client.db('pokemonPC');
-    await db.collection('pokemon').deleteOne({ username, uniqueId });
+    await pokemonCollection.deleteOne({ username, uniqueId });
   }
   module.exports = {
     getUser,

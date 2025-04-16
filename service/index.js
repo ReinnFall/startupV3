@@ -7,10 +7,6 @@ const DB = require('./database');
 
 const authCookieName = 'token';
 
-// Users and their pokemon are saved in memory and disappear whenever the service is restarted.
-let users = [];
-let userPokemon = {};
-
 // The service port. In production the front-end code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
@@ -80,12 +76,12 @@ apiRouter.post('/pokemon/add',verifyAuth, async (req,res) => {
     if(!user){
         return res.status(400).send({ msg: 'Not authorized' });
     }
-    const pokemon = req.body;
-    if (!pokemon) {
-    return res.status(400).send({ msg: 'Missing Pokémon data' });
-    }
+    // const pokemon = req.body;
+    // if (!pokemon) {
+    // return res.status(400).send({ msg: 'Missing Pokémon data' });
+    // }
 
-    await DB.addPokemonToUser(user.username, pokemon);
+    await DB.addPokemonToUser(user.username, req.body);
     // if(!userPokemon[user.username]){
     //     userPokemon[user.username] = [];
     // }
@@ -99,8 +95,8 @@ apiRouter.get('/pokemon/list', verifyAuth, async (req, res) => {
       return res.status(401).send({ msg: 'Unauthorized' });
     }
   
-    const collection = await DB.getPokemonByUsername(user.username);
-    res.send(collection);
+    const pokemon = await DB.getPokemonByUsername(user.username);
+    res.send(pokemon);
   });
 
 
@@ -123,7 +119,7 @@ app.use(function (err, req, res, next) {
       password: passwordHash,
       token: uuid.v4(),
     };
-    users.push(user);
+    await DB.addUser(user);
   
     return user;
   }
@@ -131,7 +127,10 @@ app.use(function (err, req, res, next) {
   async function findUser(field, value) {
     if (!value) return null;
   
-    return users.find((u) => u[field] === value);
+    if (field === 'token') {
+        return DB.getUserByToken(value);
+      }
+      return DB.getUser(value);
   }
   
   // setAuthCookie in the HTTP response
