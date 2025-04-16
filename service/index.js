@@ -74,8 +74,8 @@ const verifyAuth = async (req, res, next) => {
     }
   };
 
-apiRouter.post('/pokemon/add',verifyAuth, (req,res) => {
-    const user = users.find(u=> u.token === req.cookies[authCookieName]);
+apiRouter.post('/pokemon/add',verifyAuth, async (req,res) => {
+    const user = await findUser('token', req.cookies[authCookieName]);
     if(!user){
         return res.status(400).send({ msg: 'Not authorized' });
     }
@@ -84,10 +84,11 @@ apiRouter.post('/pokemon/add',verifyAuth, (req,res) => {
     return res.status(400).send({ msg: 'Missing Pokémon data' });
     }
 
-    if(!userPokemon[user.username]){
-        userPokemon[user.username] = [];
-    }
-    userPokemon[user.username].push(pokemon);
+    await DB.addPokemonToUser(user.username, pokemon);
+    // if(!userPokemon[user.username]){
+    //     userPokemon[user.username] = [];
+    // }
+    // userPokemon[user.username].push(pokemon);
     res.status(201).send({ msg: 'Pokemon added!' });
 });
 

@@ -31,10 +31,19 @@ const userCollection = db.collection('user');
   async function updateUser(user) {
     await userCollection.updateOne({ username: user.username }, { $set: user });
   }
-
+  async function getPokemonByUsername(username) {
+    const db = client.db('pokemonPC');
+    return await db.collection('pokemon').find({ username }).toArray();
+  }
+  async function addPokemonToUser(username, pokemon) {
+    const db = client.db('pokemonPC');
+    await db.collection('pokemon').insertOne({ username, ...pokemon });
+  }
   module.exports = {
     getUser,
     getUserByToken,
     addUser,
-    updateUser
+    updateUser,
+    getPokemonByUsername,
+    addPokemonToUser
   };
