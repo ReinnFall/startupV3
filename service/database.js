@@ -3,8 +3,10 @@ const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
+
 const db = client.db('pokemonPC');
 const userCollection = db.collection('user');
+
 
 // This will asynchronously test the connection and exit the process if it fails
 (async function testConnection() {
@@ -39,11 +41,16 @@ const userCollection = db.collection('user');
     const db = client.db('pokemonPC');
     await db.collection('pokemon').insertOne({ username, ...pokemon });
   }
+  async function removePokemon(username, uniqueId) {
+    const db = client.db('pokemonPC');
+    await db.collection('pokemon').deleteOne({ username, uniqueId });
+  }
   module.exports = {
     getUser,
     getUserByToken,
     addUser,
     updateUser,
     getPokemonByUsername,
-    addPokemonToUser
+    addPokemonToUser,
+    removePokemon
   };

@@ -69,14 +69,13 @@ export const PokemonProvider = ({ children }) => {
   };
 
   // Remove a Pokemon by ID
-  const removePokemon = (uniqueId) => {
-    console.log("Before removing:", caughtPokemon); // Log full list before deletion
-    console.log("Removing Pokémon with uniqueId:", uniqueId);
-    setCaughtPokemon((prev) => {
-      const newList = prev.filter((pokemon) => pokemon.uniqueId !== uniqueId);
-      console.log("After removing:", newList); // Log list after deletion
-      return newList;
-  });
+  const removePokemon = async (uniqueId) => {
+    await fetch(`/api/pokemon/${uniqueId}`, {
+      method: 'DELETE',
+      credentials: 'include',
+    });
+  
+    setCaughtPokemon((prev) => prev.filter((p) => p.uniqueId !== uniqueId));
   };
   return (
     <PokemonContext.Provider value={{ caughtPokemon, addPokemon, removePokemon }}>
